@@ -5,7 +5,6 @@ These are instructions for starting a plain Java project in the standard distrib
 Starting a Java Gradle project in Visual Studio Code (VS Code) is straightforward with the help of the Java and Gradle extensions. Here’s a step-by-step guide to get started:
 
 ## Step 1: Install Necessary Extensions
-
 Ensure the following extensions are installed in VS Code:
 1. Java Extension Pack (includes Debugger for Java, Java Test Runner, etc.)
 2. Gradle for Java (provides Gradle support)
@@ -15,7 +14,6 @@ To install:
 * Install them both.
 
 ## Step 2: Create a New Gradle Project
-
 You can create a Gradle project directly using the terminal or via the VS Code interface:
 
 Option 1: Using the VS Code Command Palette
@@ -42,7 +40,6 @@ Follow the interactive prompts:
 Gradle will generate the project structure.
 
 ## Step 3: Project Structure
-
 After initialization, you’ll see a structure similar to this:
 ```
 my-gradle-project/
@@ -65,7 +62,6 @@ my-gradle-project/
 ```
 
 ## Step 4: Run and Debug Your Project
-
 1. Run the Project:
   * Open App.java (or your main class).
   * Click the Run button above the main method or use the Command Palette (Ctrl+Shift+P) and select Run Java.
@@ -76,7 +72,6 @@ my-gradle-project/
   * Ensure your launch.json file is set up correctly (VS Code often auto-generates it for Java).
 
 ## Step 5: Edit the build.gradle File
-
 Modify build.gradle to add dependencies, plugins, or custom tasks as needed. Example:
 
 ```
@@ -101,13 +96,11 @@ application {
 Run ./gradlew build in the terminal to compile the project and resolve dependencies.
 
 ## Step 6: Explore Gradle Tasks
-
 Use the Gradle extension to explore available tasks:
   1. Open the Gradle Tasks view from the Explorer panel.
   2. Run tasks like build, run, or test directly from the interface.
 
 ## Step 7: Version Control (Optional)
-
 If using Git, initialize a repository:
 ```
 git init

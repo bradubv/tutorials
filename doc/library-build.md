@@ -3,24 +3,23 @@
 ## Step 1: Create the Java Library
 
 1. Project Structure:
-
 ```
 my-library/
 ├── src/
 │   └── main/
 │       └── java/
-│           └── com/
-│               └── example/
-│                   └── MyLibrary.java
+│           └── org/
+│               └── team7525/
+│                   └── GreetLibrary.java
 ├── build.gradle
 └── settings.gradle
 ```
 
-2. Library Code (MyLibrary.java):
+2. Library Code (GreetLibrary.java):
 ```
-package com.example;
+package org.team7525;
 
-public class MyLibrary {
+public class GreetLibrary {
     public static String greet(String name) {
         return "Hello, " + name + "!";
     }
@@ -34,7 +33,7 @@ plugins {
     id 'maven-publish' // Enables publishing to a Maven repository
 }
 
-group = 'com.example'
+group = 'org.team7525'
 version = '1.0.0'
 
 publishing {
@@ -54,7 +53,7 @@ publishing {
 
 4. settings.gradle:
 ```
-    rootProject.name = 'my-library'
+    rootProject.name = 'greet-library'
 ```
 
 ## Step 2: Build and Publish the Library
@@ -78,8 +77,8 @@ my-app/
 ├── src/
 │   └── main/
 │       └── java/
-│           └── com/
-│               └── example/
+│           └── org/
+│               └── team7525/
 │                   └── MyApp.java
 ├── build.gradle
 └── settings.gradle
@@ -87,13 +86,13 @@ my-app/
 
 2. Application Code (MyApp.java):
 ```
-package com.example;
+package org.team7525;
 
-import com.example.MyLibrary;
+import org.team7525.GreetLibrary;
 
 public class MyApp {
     public static void main(String[] args) {
-        String message = MyLibrary.greet("World");
+        String message = GreetLibrary.greet("World");
         System.out.println(message);
     }
 }
@@ -107,17 +106,17 @@ plugins {
 
 repositories {
     maven {
-        url = uri("../my-library/build/maven-repo") // Local repository
+        url = uri("../greet-library/build/maven-repo") // Local repository
     }
     mavenCentral() // For other dependencies if needed
 }
 
 dependencies {
-    implementation 'com.example:my-library:1.0.0'
+    implementation 'org.team7525:greet-library:1.0.0'
 }
 
 application {
-    mainClass = 'com.example.MyApp'
+    mainClass = 'org.team7525.MyApp'
 }
 ```
 
