@@ -6,7 +6,7 @@ Starting a Java Gradle project in Visual Studio Code (VS Code) is straightforwar
 
 ## Step 1: Install Necessary Extensions
 Ensure the following extensions are installed in VS Code:
-1. Java Extension Pack (includes Debugger for Java, Java Test Runner, etc.)
+1. Extension Pack for Java (includes Debugger for Java, Java Test Runner, etc.)
 2. Gradle for Java (provides Gradle support)
 
 To install:
