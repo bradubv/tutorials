@@ -3,7 +3,7 @@
 ## Example
 1. If you haven't cloned the example git repositories follow the instructions from {doc}`library-build`
 
-2. Switch to the [github](https://github.com/bradubv/greet-app/tree/github-pub) branch of the [greet-app](https://github.com/bradubv/greet-app) repo
+2. Switch to the [github-pub](https://github.com/bradubv/greet-app/tree/github-pub) branch of the [greet-app](https://github.com/bradubv/greet-app) repo
 
 3. You will need to generate a Personal Access Token in GitHub.  The token just needs read:packages permissions
     - Click on your profile picture in the upper right hand corner
