@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java Gradle Project &mdash; Tutorials 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Publishing to GitHub" href="publish-to-github.html" />
+    <link rel="prev" title="Packaging a library" href="library-build.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Tutorials
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="library-build.html">Packaging a library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Java Gradle Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-install-necessary-extensions">Step 1: Install Necessary Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-create-a-new-gradle-project">Step 2: Create a New Gradle Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3-project-structure">Step 3: Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4-run-and-debug-your-project">Step 4: Run and Debug Your Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-5-edit-the-build-gradle-file">Step 5: Edit the build.gradle File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-6-explore-gradle-tasks">Step 6: Explore Gradle Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-7-version-control-optional">Step 7: Version Control (Optional)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="publish-to-github.html">Publishing to GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tutorials</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Java Gradle Project</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/java-with-gradle.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="java-gradle-project">
+<h1>Java Gradle Project<a class="headerlink" href="#java-gradle-project" title="Link to this heading"></a></h1>
+<p>These are instructions for starting a plain Java project in the standard distribution of Visual Studio Code.  wpilib comes with it’s own (generally older) version of Visual Studio Code.  The instructions on this page can also run in the Visual Studio Code that comes with wpilib, but not by starting a new wpilib project.</p>
+<p>Starting a Java Gradle project in Visual Studio Code (VS Code) is straightforward with the help of the Java and Gradle extensions. Here’s a step-by-step guide to get started:</p>
+<section id="step-1-install-necessary-extensions">
+<h2>Step 1: Install Necessary Extensions<a class="headerlink" href="#step-1-install-necessary-extensions" title="Link to this heading"></a></h2>
+<p>Ensure the following extensions are installed in VS Code:</p>
+<ol class="arabic simple">
+<li><p>Extension Pack for Java (includes Debugger for Java, Java Test Runner, etc.)</p></li>
+<li><p>Gradle for Java (provides Gradle support)</p></li>
+</ol>
+<p>To install:</p>
+<ul class="simple">
+<li><p>Go to the Extensions view (Ctrl+Shift+X) and search for “Java Extension Pack” and “Gradle for Java.”</p></li>
+<li><p>Install them both.</p></li>
+</ul>
+</section>
+<section id="step-2-create-a-new-gradle-project">
+<h2>Step 2: Create a New Gradle Project<a class="headerlink" href="#step-2-create-a-new-gradle-project" title="Link to this heading"></a></h2>
+<p>You can create a Gradle project directly using the terminal or via the VS Code interface:</p>
+<p>Option 1: Using the VS Code Command Palette</p>
+<ol class="arabic simple">
+<li><p>Open the Command Palette (Ctrl+Shift+P).</p></li>
+<li><p>Type and select Java: Create Java Project.</p></li>
+<li><p>Choose Gradle as the build tool.</p></li>
+<li><p>Follow the prompts to configure the project (e.g., project name, package, etc.).</p></li>
+<li><p>VS Code will create the project structure and open it for you.</p></li>
+</ol>
+<p>Option 2: Using the Terminal</p>
+<ol class="arabic simple">
+<li><p>Open the terminal in VS Code (Ctrl+ `).</p></li>
+<li><p>Run the following command:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gradle</span> <span class="n">init</span>
+</pre></div>
+</div>
+<p>Follow the interactive prompts:
+3. Select type of project to generate: application or library (for a basic Java project, choose application).</p>
+<ul class="simple">
+<li><p>Select implementation language: Java.</p></li>
+<li><p>Select build script DSL: Groovy or Kotlin (default is Groovy).</p></li>
+<li><p>Select test framework: JUnit (default for testing).</p></li>
+<li><p>Project name: Enter your desired project name.</p></li>
+</ul>
+<p>Gradle will generate the project structure.</p>
+</section>
+<section id="step-3-project-structure">
+<h2>Step 3: Project Structure<a class="headerlink" href="#step-3-project-structure" title="Link to this heading"></a></h2>
+<p>After initialization, you’ll see a structure similar to this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my-gradle-project/
+├── build.gradle         # Gradle build script
+├── settings.gradle      # Project settings
+├── gradle/              # Gradle wrapper files
+├── gradlew              # Unix Gradle wrapper
+├── gradlew.bat          # Windows Gradle wrapper
+└── src/
+    ├── main/
+    │   └── java/
+    │       └── com/
+    │           └── example/
+    │               └── App.java   # Main application class
+    └── test/
+        └── java/
+            └── com/
+                └── example/
+                    └── AppTest.java  # Unit tests
+</pre></div>
+</div>
+</section>
+<section id="step-4-run-and-debug-your-project">
+<h2>Step 4: Run and Debug Your Project<a class="headerlink" href="#step-4-run-and-debug-your-project" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Run the Project:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Open App.java (or your main class).</p></li>
+<li><p>Click the Run button above the main method or use the Command Palette (Ctrl+Shift+P) and select Run Java.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Debug the Project:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Set breakpoints by clicking in the left gutter of the editor.</p></li>
+<li><p>Press F5 or use the Command Palette to start debugging.</p></li>
+<li><p>Ensure your launch.json file is set up correctly (VS Code often auto-generates it for Java).</p></li>
+</ul>
+</section>
+<section id="step-5-edit-the-build-gradle-file">
+<h2>Step 5: Edit the build.gradle File<a class="headerlink" href="#step-5-edit-the-build-gradle-file" title="Link to this heading"></a></h2>
+<p>Modify build.gradle to add dependencies, plugins, or custom tasks as needed. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plugins</span> <span class="p">{</span>
+    <span class="nb">id</span> <span class="s1">&#39;java&#39;</span>
+    <span class="nb">id</span> <span class="s1">&#39;application&#39;</span>
+<span class="p">}</span>
+
+<span class="n">repositories</span> <span class="p">{</span>
+    <span class="n">mavenCentral</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">dependencies</span> <span class="p">{</span>
+    <span class="n">implementation</span> <span class="s1">&#39;com.google.guava:guava:31.1-jre&#39;</span>
+    <span class="n">testImplementation</span> <span class="s1">&#39;org.junit.jupiter:junit-jupiter:5.9.2&#39;</span>
+<span class="p">}</span>
+
+<span class="n">application</span> <span class="p">{</span>
+    <span class="n">mainClass</span> <span class="o">=</span> <span class="s1">&#39;com.example.App&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Run ./gradlew build in the terminal to compile the project and resolve dependencies.</p>
+</section>
+<section id="step-6-explore-gradle-tasks">
+<h2>Step 6: Explore Gradle Tasks<a class="headerlink" href="#step-6-explore-gradle-tasks" title="Link to this heading"></a></h2>
+<p>Use the Gradle extension to explore available tasks:</p>
+<ol class="arabic simple">
+<li><p>Open the Gradle Tasks view from the Explorer panel.</p></li>
+<li><p>Run tasks like build, run, or test directly from the interface.</p></li>
+</ol>
+</section>
+<section id="step-7-version-control-optional">
+<h2>Step 7: Version Control (Optional)<a class="headerlink" href="#step-7-version-control-optional" title="Link to this heading"></a></h2>
+<p>If using Git, initialize a repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">init</span>
+</pre></div>
+</div>
+<p>Commit your project:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;Initial commit&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="library-build.html" class="btn btn-neutral float-left" title="Packaging a library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="publish-to-github.html" class="btn btn-neutral float-right" title="Publishing to GitHub" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

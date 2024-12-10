@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packaging a library &mdash; Tutorials 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Java Gradle Project" href="java-with-gradle.html" />
+    <link rel="prev" title="FRC Programming Tutorials" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Tutorials
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Packaging a library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-create-the-java-library">Step 1: Create the Java Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-build-and-publish-the-library">Step 2: Build and Publish the Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3-create-a-simple-project-to-use-the-library">Step 3: Create a Simple Project to Use the Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4-run-the-application">Step 4: Run the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-exercises">Additional exercises:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="java-with-gradle.html">Java Gradle Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publish-to-github.html">Publishing to GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tutorials</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Packaging a library</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/library-build.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="packaging-a-library">
+<h1>Packaging a library<a class="headerlink" href="#packaging-a-library" title="Link to this heading"></a></h1>
+<section id="step-1-create-the-java-library">
+<h2>Step 1: Create the Java Library<a class="headerlink" href="#step-1-create-the-java-library" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Project Structure:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my-library/
+├── src/
+│   └── main/
+│       └── java/
+│           └── org/
+│               └── team7525/
+│                   └── GreetLibrary.java
+├── build.gradle
+└── settings.gradle
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Library Code (GreetLibrary.java):</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">team7525</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">GreetLibrary</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="n">static</span> <span class="n">String</span> <span class="n">greet</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>build.gradle:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plugins</span> <span class="p">{</span>
+    <span class="nb">id</span> <span class="s1">&#39;java&#39;</span>
+    <span class="nb">id</span> <span class="s1">&#39;maven-publish&#39;</span> <span class="o">//</span> <span class="n">Enables</span> <span class="n">publishing</span> <span class="n">to</span> <span class="n">a</span> <span class="n">Maven</span> <span class="n">repository</span>
+<span class="p">}</span>
+
+<span class="n">group</span> <span class="o">=</span> <span class="s1">&#39;org.team7525&#39;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span>
+
+<span class="n">publishing</span> <span class="p">{</span>
+    <span class="n">publications</span> <span class="p">{</span>
+        <span class="n">mavenJava</span><span class="p">(</span><span class="n">MavenPublication</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kn">from</span> <span class="nn">components.java</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">repositories</span> <span class="p">{</span>
+        <span class="n">maven</span> <span class="p">{</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">uri</span><span class="p">(</span><span class="s2">&quot;file://$</span><span class="si">{buildDir}</span><span class="s2">/maven-repo&quot;</span><span class="p">)</span> <span class="o">//</span> <span class="n">Local</span> <span class="n">repository</span> <span class="k">for</span> <span class="n">demonstration</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>settings.gradle:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">rootProject</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;greet-library&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-build-and-publish-the-library">
+<h2>Step 2: Build and Publish the Library<a class="headerlink" href="#step-2-build-and-publish-the-library" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Build the Library: Run the following command in the terminal:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">gradlew</span> <span class="n">build</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Publish the Library to a Local Maven Repository:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">gradlew</span> <span class="n">publish</span>
+</pre></div>
+</div>
+<p>This will create a local Maven repository at build/maven-repo.</p>
+</section>
+<section id="step-3-create-a-simple-project-to-use-the-library">
+<h2>Step 3: Create a Simple Project to Use the Library<a class="headerlink" href="#step-3-create-a-simple-project-to-use-the-library" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Project Structure:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my-app/
+├── src/
+│   └── main/
+│       └── java/
+│           └── org/
+│               └── team7525/
+│                   └── MyApp.java
+├── build.gradle
+└── settings.gradle
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Application Code (MyApp.java):</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">team7525</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">org.team7525.GreetLibrary</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">MyApp</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">GreetLibrary</span><span class="o">.</span><span class="n">greet</span><span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>build.gradle:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plugins</span> <span class="p">{</span>
+    <span class="nb">id</span> <span class="s1">&#39;application&#39;</span>
+<span class="p">}</span>
+
+<span class="n">repositories</span> <span class="p">{</span>
+    <span class="n">maven</span> <span class="p">{</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">uri</span><span class="p">(</span><span class="s2">&quot;../greet-library/build/maven-repo&quot;</span><span class="p">)</span> <span class="o">//</span> <span class="n">Local</span> <span class="n">repository</span>
+    <span class="p">}</span>
+    <span class="n">mavenCentral</span><span class="p">()</span> <span class="o">//</span> <span class="n">For</span> <span class="n">other</span> <span class="n">dependencies</span> <span class="k">if</span> <span class="n">needed</span>
+<span class="p">}</span>
+
+<span class="n">dependencies</span> <span class="p">{</span>
+    <span class="n">implementation</span> <span class="s1">&#39;org.team7525:greet-library:1.0.0&#39;</span>
+<span class="p">}</span>
+
+<span class="n">application</span> <span class="p">{</span>
+    <span class="n">mainClass</span> <span class="o">=</span> <span class="s1">&#39;org.team7525.MyApp&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>settings.gradle:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rootProject</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;my-app&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="step-4-run-the-application">
+<h2>Step 4: Run the Application<a class="headerlink" href="#step-4-run-the-application" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Run the application: Navigate to the my-app directory and run:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">gradlew</span> <span class="n">run</span>
+</pre></div>
+</div>
+<p>This should print:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    Hello, World!
+</pre></div>
+</div>
+</section>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Clone the library repository https://github.com/bradubv/greet-lib.git</p></li>
+<li><p>Open a terminal (CTRL + `) and build the library</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">gradlew</span> <span class="n">build</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Publish the library to the locally created repo</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">gradlew</span> <span class="n">publish</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Clone the applicaton repository https://github.com/bradubv/greet-app.git . It is important to clone this project in the same directory where the library project was cloned.  This is because a relative path to the repository was used in the gradle file.</p></li>
+<li><p>Open a terminal (CTRL + `) and build the app</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">gradlew</span> <span class="n">build</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Run the application</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">gradlew</span> <span class="n">run</span>
+</pre></div>
+</div>
+</section>
+<section id="additional-exercises">
+<h2>Additional exercises:<a class="headerlink" href="#additional-exercises" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Dependency Management: How does Gradle download the library from the local Maven repository.</p></li>
+<li><p>Publishing to a Remote Repository: Instead of publishing to a local repository publish the library to a remote Maven repository like Maven Central or GitHub Packages.</p></li>
+<li><p>Versioning: Updating the library version (e.g., 1.0.1) and how dependencies in other projects are affected.</p></li>
+<li><p>Testing: Include unit tests in my-library using JUnit and demonstrate how testing works during the build.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="FRC Programming Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="java-with-gradle.html" class="btn btn-neutral float-right" title="Java Gradle Project" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

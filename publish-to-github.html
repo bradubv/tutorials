@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publishing to GitHub &mdash; Tutorials 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Java Gradle Project" href="java-with-gradle.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Tutorials
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="library-build.html">Packaging a library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java-with-gradle.html">Java Gradle Project</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Publishing to GitHub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#todo">TODO</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tutorials</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Publishing to GitHub</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/publish-to-github.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="publishing-to-github">
+<h1>Publishing to GitHub<a class="headerlink" href="#publishing-to-github" title="Link to this heading"></a></h1>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>If you haven’t cloned the example git repositories follow the instructions from <a class="reference internal" href="library-build.html"><span class="doc">Packaging a library</span></a></p></li>
+<li><p>Switch to the <a class="reference external" href="https://github.com/bradubv/greet-app/tree/github-pub">github-pub</a> branch of the <a class="reference external" href="https://github.com/bradubv/greet-app">greet-app</a> repo</p></li>
+<li><p>You will need to generate a Personal Access Token in GitHub.  The token just needs read:packages permissions</p>
+<ul class="simple">
+<li><p>Click on your profile picture in the upper right hand corner</p></li>
+<li><p>Pick Settings</p></li>
+<li><p>On the left hand side click Developer settings all the way down.</p></li>
+<li><p>Pick Personal access tokens</p></li>
+<li><p>Pick Tokens (classic)</p></li>
+<li><p>Click Generate new token and pick Generate new token (classic)</p></li>
+<li><p>Give your token a name, set the expiration period and click read:packages under Select scopes</p></li>
+<li><p>Scroll down and click Generate token</p></li>
+<li><p>You only have this chance to copy the token.  After this you will no longer be able to see it.</p></li>
+</ul>
+</li>
+<li><p>Open a PowerShell terminal (CTRL + `) and set up environment variables</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$env:GITHUB_ACTOR = &quot;your_github_login&quot;
+$env:GITHUB_TOKEN = &quot;your_github_token&quot;
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>You should now be able to clean the project</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>\<span class="n">gradlew</span> <span class="n">clean</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Run it</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>\<span class="n">gradlew</span> <span class="n">run</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Take a look at the commits that moved the location of the repository on the <a class="reference external" href="https://github.com/bradubv/greet-lib/commit/0d989e33b6cf0d0a3436f4000972c520e65ec7f8">library</a> and the <a class="reference external" href="https://github.com/bradubv/greet-app/commit/765a2551f283795b4cdb04f4a23c5b7984a3d759">application</a>.</p></li>
+</ol>
+</section>
+<section id="todo">
+<h2>TODO<a class="headerlink" href="#todo" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Figure out why build.gradle is not loading the variables from gradle.properties</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="java-with-gradle.html" class="btn btn-neutral float-left" title="Java Gradle Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
