@@ -9,3 +9,4 @@ FRC Programming Tutorials
 
    library-build.md
    java-with-gradle.md
+   publish-to-github.md

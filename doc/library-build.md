@@ -137,6 +137,32 @@ This should print:
     Hello, World!
 ```
 
+## Example:
+
+1. Clone the library repository https://github.com/bradubv/greet-lib.git
+
+2. Open a terminal (CTRL + `) and build the library
+```
+./gradlew build
+```
+
+3. Publish the library to the locally created repo
+```
+./gradlew publish
+```
+
+4. Clone the applicaton repository https://github.com/bradubv/greet-app.git . It is important to clone this project in the same directory where the library project was cloned.  This is because a relative path to the repository was used in the gradle file.
+
+5. Open a terminal (CTRL + `) and build the app
+```
+./gradlew build
+```
+
+6. Run the application
+```
+./gradlew run
+```
+
 ## Additional exercises:
 
 1. Dependency Management: How does Gradle download the library from the local Maven repository.
